@@ -1,4 +1,6 @@
 const express = require('express')
+const cors = require('cors');
+
 const app = express()
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000
@@ -6,7 +8,9 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true }))
 
 app.use(bodyParser.json())
-
+app.use(cors({
+    origin: '*'
+}));
 let routes = require('./api/routes') //importing route
 routes(app)
 
