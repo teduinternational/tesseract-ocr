@@ -4,9 +4,10 @@ module.exports = function (app) {
 
 
   app.route('/')
-    .get((req,res) => {
+    .get((req, res) => {
       res.json('App is running...');
     });
+
   app.route('/images/image-to-text')
     .post(imagesCtrl.imageToText);
 };
